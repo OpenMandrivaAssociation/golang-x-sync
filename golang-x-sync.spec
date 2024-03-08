@@ -1,8 +1,6 @@
 # Run tests in check section
 %bcond_without check
 
-%bcond_without bootstrap2
-
 # https://golang.org/x/sync
 %global goipath		golang.org/x/sync
 %global forgeurl	https://golang.org/x/sync
@@ -15,11 +13,6 @@ Name:		golang-x-sync
 
 Release:	1
 Source0:	https://github.com/golang/sync/archive/v%{version}/sync-%{version}.tar.gz
-%if %{with bootstrap2}
-# Generated from Source100
-Source3:	vendor.tar.zst
-Source100:	golang-package-dependencies.sh
-%endif
 URL:		https://github.com/golang/sync
 License:	BSD with advertising
 Group:		Development/Other
@@ -53,12 +46,6 @@ building other packages which use import path with
 
 %prep
 %autosetup -p1 -n sync-%{version}
-
-rm -rf vendor
-
-%if %{with bootstrap2}
-tar xf %{S:3}
-%endif
 
 %build
 %gobuildroot
