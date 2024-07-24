@@ -4,7 +4,7 @@
 # https://golang.org/x/sync
 %global goipath		golang.org/x/sync
 %global forgeurl	https://golang.org/x/sync
-Version:			0.6.0
+Version:			0.7.0
 
 %gometa
 
